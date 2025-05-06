@@ -1,0 +1,19 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./CRUD-App # This should be the directory containing your frontend Dockerfile
+      dockerfile: Dockerfile # Optional if the Dockerfile is named 'Dockerfile', you can omit this
+    ports:
+      - "3001:80" # Frontend will be accessible on http://localhost:3001
+    depends_on:
+      - backend # Wait for backend to be ready
+
+  backend:
+    build:
+      context: ./rest-api # Path to your backend directory
+    ports:
+      - "3000:3000" # Backend will be accessible on http://localhost:3000
+    environment:
+      - NODE_ENV=development
+
