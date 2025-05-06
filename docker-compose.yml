@@ -2,18 +2,18 @@ version: "3"
 services:
   frontend:
     build:
-      context: ./CRUD-App # This should be the directory containing your frontend Dockerfile
-      dockerfile: Dockerfile # Optional if the Dockerfile is named 'Dockerfile', you can omit this
+      context: ./CRUD-App
+      dockerfile: Dockerfile # Make sure this is your Node + npm start Dockerfile
     ports:
-      - "3001:80" # Frontend will be accessible on http://localhost:3001
+      - "3001:3000" # Expose React's 3000 on host port 3001
     depends_on:
-      - backend # Wait for backend to be ready
+      - backend
 
   backend:
     build:
-      context: ./rest-api # Path to your backend directory
+      context: ./rest-api
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000" # Backend will be accessible on http://localhost:3000
+      - "3000:3000"
     environment:
       - NODE_ENV=development
-
