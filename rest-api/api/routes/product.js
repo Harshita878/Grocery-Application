@@ -6,9 +6,9 @@ const cloudinary = require('cloudinary').v2;
 const checkAuth = require('../middleware/check-auth')
 
 cloudinary.config({
-  cloud_name:'dloprquzk',
-  api_key:'547643473448911',
-  api_secret:'tdjqRliJYLzyIHwx0VygZ-WNkOM'
+  cloud_name:'',
+  api_key:'',
+  api_secret:''
 
 });
 
